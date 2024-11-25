@@ -1,0 +1,47 @@
+@startuml nametask1
+
+class Shape {
+    +area() : double
+    +perimeter() : double
+    +displayProperties() : void
+    {abstract}
+}
+
+class Rectangle {
+    -width : double
+    -height : double
+    +area() : double
+    +perimeter() : double
+    +displayProperties() : void
+}
+
+class Circle {
+    -radius : double
+    +area() : double
+    +perimeter() : double
+    +displayProperties() : void
+}
+
+class EquilateralTriangle {
+    -side : double
+    +area() : double
+    +perimeter() : double
+    +displayProperties() : void
+}
+
+class GraphicsEditor {
+    -shapes : std::vector<Shape*>
+    +addShape(shape : Shape*) : void
+    +displayAllShapes() : void
+    +largestShape() : Shape*
+    +displayLargestShape() : void
+    +totalArea() : double
+    +clearShapes() : void
+}
+
+Shape <|-- Rectangle
+Shape <|-- Circle
+Shape <|-- EquilateralTriangle
+GraphicsEditor o-- "0..*" Shape
+
+@enduml
